@@ -8,12 +8,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { infoModalInterface, userDataInterface } from "@/interfaces";
 
 import { Modal } from "@mui/material";
 import { useFormik } from "formik";
-import { userDataInterface } from "@/interfaces";
 
-const InfoModal = () => {
+const InfoModal = ({ handleSubmit, open }: infoModalInterface) => {
   const initialValues = {
     name: "",
     gender: "",
@@ -24,7 +24,7 @@ const InfoModal = () => {
   });
 
   const onSubmit = (values: userDataInterface) => {
-    console.log(values);
+    handleSubmit(values);
   };
   const formik = useFormik({
     initialValues,
@@ -34,7 +34,7 @@ const InfoModal = () => {
 
   return (
     <Modal
-      open={true}
+      open={open}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
