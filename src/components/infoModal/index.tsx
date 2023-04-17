@@ -5,7 +5,6 @@ import {
   Button,
   Grid,
   MenuItem,
-  Select,
   TextField,
   Typography,
 } from "@mui/material";
@@ -75,7 +74,14 @@ const InfoModal = () => {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Grid container spacing={2} justifyContent="center">
+              <Grid
+                container
+                spacing={4}
+                justifyContent="center"
+                sx={{
+                  marginTop: 0.5,
+                }}
+              >
                 <Grid item xs={12} md={6}>
                   <TextField
                     label="Name"
@@ -90,6 +96,7 @@ const InfoModal = () => {
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <TextField
+                    sx={{ textAlign: "left" }}
                     select={true}
                     label="Gender"
                     variant="outlined"
@@ -102,7 +109,6 @@ const InfoModal = () => {
                       formik.touched.gender && Boolean(formik.errors.gender)
                     }
                   >
-                    <MenuItem value=""> Select</MenuItem>
                     <MenuItem value="Male">Male</MenuItem>
                     <MenuItem value="Female">Female</MenuItem>
                   </TextField>
@@ -114,7 +120,10 @@ const InfoModal = () => {
                 variant="contained"
                 color="primary"
                 type="submit"
-                sx={{ mb: 2 }}
+                sx={{
+                  mb: 2, 
+                  width: "30%",
+                }}
               >
                 Join
               </Button>
